@@ -73,7 +73,6 @@ html {
   justify-content: center;
   align-items: center;
   padding: 11px 0 0 0;
-  transition: 0.5s;
 }
 
 #bars {
@@ -84,7 +83,6 @@ html {
   justify-content: center;
   align-items: center;
   padding: 11px 0 0 0;
-  transition: 0.5s;
 }
 
 #mobile-main-logo {
