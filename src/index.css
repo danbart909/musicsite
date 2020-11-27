@@ -73,6 +73,7 @@ html {
   justify-content: center;
   align-items: center;
   padding: 11px 0 0 0;
+  transition: 0.5s;
 }
 
 #bars {
@@ -83,6 +84,7 @@ html {
   justify-content: center;
   align-items: center;
   padding: 11px 0 0 0;
+  transition: 0.5s;
 }
 
 #mobile-main-logo {
@@ -132,16 +134,18 @@ html {
   align-items: center;
   transition: 0.3s;
   border-top: 1px solid gray;
+  border-bottom: 1px solid black;
 }
 
 #sidebar a:hover {
   color: black;
   background-color: white;
   transition: 0.3s;
+  border-bottom: 1px solid black;
 }
 
 .menu-item {
-
+  
 }
 
 .menu-item i {
@@ -193,7 +197,6 @@ html {
   }
   
   .nav-item {
-    outline: 1px solid white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
