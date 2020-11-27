@@ -1,13 +1,255 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Merriweather|Oswald:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  padding: 0;
+  margin: 0;
+  width: 99vw;
+  height: 100vh;
 }
+
+html {
+  font-size: 100%;
+}
+
+#overlord {
+  width: 100vw;
+  height: 92vh;
+}
+
+#nav-container {
+  display: none;
+}
+
+#nav-mobile-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+  color: white;
+  background-color: black;
+  font-family: 'Oswald', sans-serif;
+}
+
+#mobile-banner {
+  font-size: 11px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+}
+
+#mobile-menu {
+  width: 55px;
+  height: 50px;
+  margin: 0 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+#mobile-menu i {
+  font-size: 28px;
+}
+
+/* #mobile-menu:hover {
+  background-color: white;
+  color: black;
+  transition: 0.4s;
+} */
+
+#times {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 0 0 0;
+}
+
+#bars {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 0 0 0;
+}
+
+#mobile-main-logo {
+  outline: 2px solid gray;
+  width: 200px;
+  height: 70px;
+  margin: auto;
+}
+
+#mobile-spacer {
+  width: 55px;
+  height: 50px;
+  margin: 0 10px 0 0;
+}
+
+#mobile-spacer i {
+  display: none;
+}
+
+#mobile-banner-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  height: 500px;
+  width: 100%;
+  z-index: 5;
+  transition: 0.4s;
+}
+
+#sidebar {
+  background-color: black;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#sidebar a {
+  color: white;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  border-top: 1px solid gray;
+}
+
+#sidebar a:hover {
+  color: black;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.menu-item {
+
+}
+
+.menu-item i {
+  width: 40px;
+  font-size: 22px;
+}
+
+.menu-item span {
+  width: 100px;
+  font-size: 12px;
+}
+
+#body-container {
+
+}
+
+@media screen and (min-width: 950px) {
+
+  #nav-mobile-container {
+    display: none;
+  }
+
+  #nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    color: white;
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  #banner {
+    font-size: 11px;
+    height: 100%;
+    width: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #banner-left,
+  #banner-right {
+    display: flex;
+    width: 40%;
+    height: 100%;
+  }
+  
+  .nav-item {
+    outline: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    transition: 0.5s;
+  }
+
+  .nav-item:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+  }
+  
+  .nav-item i {
+    font-size: 22px;
+  }
+
+  #main-logo {
+    outline: 1px solid white;
+    width: 200px;
+    height: 100%;
+    margin: 0 0;
+    padding: 0 0;
+  }
+
+  #body-container {
+    height: 100%;
+    width: 100%;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************/
+/********** Sidebar **********/
+/*****************************/
