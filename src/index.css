@@ -88,7 +88,7 @@ html {
 #mobile-main-logo {
   outline: 2px solid gray;
   width: 200px;
-  height: 100%;
+  height: auto;
   margin: auto;
 }
 
