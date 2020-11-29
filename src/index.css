@@ -88,7 +88,7 @@ html {
 #mobile-main-logo {
   outline: 2px solid gray;
   width: 200px;
-  height: auto;
+  height: 100%;
   margin: auto;
 }
 
@@ -105,7 +105,7 @@ html {
 #mobile-banner-menu {
   display: none;
   position: fixed;
-  top: 70px;
+  top: 8vh;
   height: 500px;
   width: 100%;
   z-index: 5;
