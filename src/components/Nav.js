@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import logo from '../images/logo.jpeg'
 
 export default class Nav extends Component {
   render() {
@@ -23,7 +24,9 @@ export default class Nav extends Component {
               <div className='title' id='youtube-title'>YOUTUBE</div>
             </div>
           </div>
-          <div id='main-logo'></div>
+          <div id='main-logo'>
+            <img src={logo} alt='logo'/>
+          </div>
           <div id='banner-right'>
             <div className='nav-item' id='music'>
               <div className='logo' id='music-logo'><i class="fas fa-headphones"></i></div>

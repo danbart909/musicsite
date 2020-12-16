@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import logo from '../images/logo.jpeg'
 import $ from 'jquery';
 
 export default class NavMobile extends Component {
@@ -24,7 +25,9 @@ export default class NavMobile extends Component {
       <div id='nav-mobile-container'>
         <div id='mobile-banner'>
           <div id='mobile-menu'><i className="fas fa-bars" id='bars'></i><i className="fas fa-times" id='times'></i></div>
-          <div id='mobile-main-logo'></div>
+          <div id='mobile-main-logo'>
+            <img src={logo} alt='logo'/>
+          </div>
           <div id='mobile-spacer'><i className="fas fa-plus"></i></div>
         </div>
         <div id='mobile-banner-menu'>
