@@ -20,17 +20,6 @@ export default class Body extends Component {
   //   }
   // }
 
-  // clog = () => {
-  //   let arr = this.state.items.map((x, index) => {
-  //     return <div className='imgbox' key={index}>
-  //       <img src={x} alt={index}/>
-  //     </div>
-  //   })
-  //   return arr
-  //   // console.log(arr)
-  //   // console.log(this.state)
-  // }
-
   // fetchMoreData = () => {
   //   // a fake async api call like which sends
   //   // 20 more records in 1.5 secs
@@ -56,7 +45,7 @@ export default class Body extends Component {
       i007,
       i008,
       i009,
-      i010,
+      i010
     ]
 
     function shuffleArray(array) {
@@ -77,8 +66,8 @@ export default class Body extends Component {
         <InfiniteScroll
           dataLength={items.length}
           // next={this.fetchMoreData}
-          // next={items}
-          // hasMore={true}
+          next={items}
+          hasMore={true}
           loader={<h4>Loading...</h4>}
         >
           {items.map((x, index) => (
