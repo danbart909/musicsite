@@ -13,64 +13,53 @@ import i009 from '../images/i009.jpeg'
 import i010 from '../images/i010.jpeg'
 
 export default class Body extends Component {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
+  constructor(props) {
+    super(props)
+    this.state = {
+      items: [
+        i000,
+        i001,
+        i002,
+        i003,
+        i004,
+        i005,
+        i006,
+        i007,
+        i008,
+        i009,
+        i010
+      ]
+    }
+  }
 
-  //   }
-  // }
+  shuffleArray = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array
+  }
 
-  // fetchMoreData = () => {
-  //   // a fake async api call like which sends
-  //   // 20 more records in 1.5 secs
-  //   setTimeout(() => {
-  //     this.setState({
-  //       items: this.state.items.concat(Array.from({ length: 20 }))
-  //     });
-  //   }, 1500);
-  // };
-
-
+  fetchMoreData = () => {
+    let newItems = this.shuffleArray(this.state.items)
+    return this.setState({
+      items: this.state.items.concat(newItems)
+    })
+  }
 
   render() {
-
-    let items = [
-      i000,
-      i001,
-      i002,
-      i003,
-      i004,
-      i005,
-      i006,
-      i007,
-      i008,
-      i009,
-      i010
-    ]
-
-    function shuffleArray(array) {
-      for (var i = array.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var temp = array[i];
-          array[i] = array[j];
-          array[j] = temp;
-      }
-      return array
-    }
-
-    let newItems = shuffleArray(items)
-
     return (
       <div id='body-container'>
-      {/* <button onClick={() => {console.log(newItems)}}>.</button> */}
+      <button onClick={() => {console.log(this.state)}}>.</button>
         <InfiniteScroll
-          dataLength={items.length}
-          // next={this.fetchMoreData}
-          next={items}
+          dataLength={this.state.items.length}
+          next={() => {this.fetchMoreData()}}
           hasMore={true}
           loader={<h4>Loading...</h4>}
         >
-          {items.map((x, index) => (
+          {this.state.items.map((x, index) => (
             <div className='imgbox' key={index}>
               <img src={x} alt={index}/>
             </div>
