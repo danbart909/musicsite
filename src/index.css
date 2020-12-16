@@ -221,7 +221,7 @@ html {
   align-items: center;
   width: 150px;
   height: 300px;
-  margin: 0 3% 2%;
+  margin: 0 30px 25px;
   opacity: 0.5;
   transition: 0.4s;
 }

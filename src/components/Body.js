@@ -66,17 +66,20 @@ export default class Body extends Component {
           array[i] = array[j];
           array[j] = temp;
       }
+      return array
     }
 
     let newItems = shuffleArray(items)
 
     return (
       <div id='body-container'>
+      {/* <button onClick={() => {console.log(newItems)}}>.</button> */}
         <InfiniteScroll
           dataLength={items.length}
           // next={this.fetchMoreData}
+          // next={items}
           // hasMore={true}
-          loader={<h4>...</h4>}
+          loader={<h4>Loading...</h4>}
         >
           {items.map((x, index) => (
             <div className='imgbox' key={index}>
