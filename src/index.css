@@ -198,19 +198,14 @@ html {
 
 
 #body-container {
-  /* border: 2px solid red; */
   padding: 20px 0;
-  /* width: 100%; */
 }
 
 .infinite-scroll-component__outerdiv {
-  /* width: 100%; */
+
 }
 
 .infinite-scroll-component {
-  /* display: grid; */
-  /* grid-template-columns: auto auto auto auto auto; */
-  /* grid-gap: 20px; */
   display: flex;
   flex-wrap: wrap;
 }
@@ -219,11 +214,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 300px;
-  margin: 0 30px 25px;
+  width: 125px;
+  height: 250px;
+  margin: 0 25px 25px;
   opacity: 0.5;
   transition: 0.4s;
+  flex: 1;
 }
 
 .imgbox:hover {
@@ -331,7 +327,38 @@ img {
 
 
   #body-container {
-
+    padding: 20px 0;
+  }
+  
+  .infinite-scroll-component__outerdiv {
+  
+  }
+  
+  .infinite-scroll-component {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .imgbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px;
+    height: 350px;
+    margin: 0 30px 25px;
+    opacity: 0.5;
+    transition: 0.4s;
+    flex: 1;
+  }
+  
+  .imgbox:hover {
+    opacity: 1;
+    transition: 0.4s;
+  }
+  
+  img {
+    height: 100%;
+    width: auto;
   }
 
 }
