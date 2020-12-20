@@ -1,83 +1,87 @@
 import React, { Component } from 'react'
+import pics from './pics.js'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import ReactModal from 'react-modal';
-import i000 from '../images/i000.jpeg'
-import i001 from '../images/i001.jpeg'
-import i002 from '../images/i002.jpeg'
-import i003 from '../images/i003.jpeg'
-import i004 from '../images/i004.jpeg'
-import i005 from '../images/i005.jpeg'
-import i006 from '../images/i006.jpeg'
-import i007 from '../images/i007.jpeg'
-import i008 from '../images/i008.jpeg'
-import i009 from '../images/i009.jpeg'
-import i010 from '../images/i010.jpeg'
+import $ from 'jquery'
 
 export default class Body extends Component {
+  
   constructor(props) {
     super(props)
     this.state = {
-      showModal: false,
-      items: [
-        i000,
-        i001,
-        i002,
-        i003,
-        i004,
-        i005,
-        i006,
-        i007,
-        i008,
-        i009,
-        i010
-      ]
+      view: false,
+      img: null,
+      items: pics.shuffled
     }
   }
 
-  handleOpenModal = () => {
-    this.setState({ showModal: true });
+  openModal = (x) => {
+    this.setState({ view: true, img: x.target.currentSrc });
+    document.body.style.overflow = 'hidden';
   }
   
-  handleCloseModal = () => {
-    this.setState({ showModal: false });
+  closeModal = () => {
+    this.setState({ view: false, img: null });
+    document.body.style.overflow = 'unset';
   }
 
-  shuffleArray = (array) => {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+  esc = (e) => {
+    if (e.keyCode === 27) {
+      if (this.state.view === true) {this.setState({ view: false }) }
     }
-    return array
+  }
+
+  halt = (e) => {
+    e.stopPropagation();
   }
 
   fetchMoreData = () => {
-    let newItems = this.shuffleArray(this.state.items)
-    return this.setState({ items: this.state.items.concat(newItems) })
+    this.setState({ items: this.state.items.concat(pics.shuffled) })
   }
 
+  componentDidMount() {
+    document.addEventListener("keydown", this.esc, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.esc, false);
+  }
+
+  // console = () => {
+  //   console.log(pics)
+  // }
+
   render() {
+
+    $(document).ready(function(){
+      $(".modal img, .modal-share").click(function(e) {
+        e.stopPropagation();
+      });
+    });
+
     return (
       <div id='body-container'>
-      {/* <button onClick={() => {console.log(this.state)}}>.</button> */}
+      {/* <button onClick={this.console}>.</button> */}
+      { this.state.view && <div className='overlay' onClick={this.closeModal}>
+        <div className='modal'>
+          <div className='modal-header'>
+            <div className='modal-share'>SHARE</div>
+            <div className='modal-close' onClick={this.closeModal}>X</div>
+          </div>
+          <img src={this.state.img} alt="lookin good"/>
+        </div>
+      </div> }
         <InfiniteScroll
+          className='infinitescroll'
+          overlayClassName='infinitescroll-overlay'
           dataLength={this.state.items.length}
-          next={() => {this.fetchMoreData()}}
+          next={this.fetchMoreData}
           hasMore={true}
           scrollThreshold={0.4}
           loader={<h4>Loading...</h4>}
         >
           {this.state.items.map((x, index) => (
-            <div className='imgbox' key={index}>
-              <img src={x} alt={index} onClick={() => {this.handleOpenModal()}}/>
-              <ReactModal
-                isOpen={this.state.showModal}
-                contentLabel="img box"
-              >
-                <img src={x} alt={index}/>
-                <button onClick={this.handleCloseModal}>Close Modal</button>
-              </ReactModal>
+            <div className='imgbox' key={index} onClick={(x) => {this.openModal(x)}}>
+              <img src={x} alt={index}/>
             </div>
           ))}
         </InfiniteScroll>
