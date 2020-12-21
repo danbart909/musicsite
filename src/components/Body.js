@@ -8,6 +8,7 @@ export default class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      share: false,
       view: false,
       img: null,
       items: pics.shuffled
@@ -20,18 +21,19 @@ export default class Body extends Component {
   }
   
   closeModal = () => {
-    this.setState({ view: false, img: null });
+    this.setState({ view: false, img: null, share: false });
     document.body.style.overflow = 'unset';
+  }
+
+  toggleShare = (e) => {
+    e.stopPropagation()
+    this.setState({ share: !this.state.share })
   }
 
   esc = (e) => {
     if (e.keyCode === 27) {
       if (this.state.view === true) {this.setState({ view: false }) }
     }
-  }
-
-  halt = (e) => {
-    e.stopPropagation();
   }
 
   fetchMoreData = () => {
@@ -49,23 +51,33 @@ export default class Body extends Component {
   // console = () => {
   //   console.log(pics)
   // }
+  // <button onClick={this.console}>.</button>
 
   render() {
 
     $(document).ready(function(){
-      $(".modal img, .modal-share").click(function(e) {
+      $(".modal img, .share-menu").click(function(e) {
         e.stopPropagation();
       });
     });
 
+    let modalShareClass = 'modal-share-closed'
+    if (this.state.share === true) {
+      modalShareClass = 'modal-share-open';
+    }
+
     return (
       <div id='body-container'>
-      {/* <button onClick={this.console}>.</button> */}
       { this.state.view && <div className='overlay' onClick={this.closeModal}>
         <div className='modal'>
           <div className='modal-header'>
-            <div className='modal-share'>SHARE</div>
-            <div className='modal-close' onClick={this.closeModal}>X</div>
+            <div className={modalShareClass} onClick={(e) => this.toggleShare(e)}>SHARE</div>
+            <div className='modal-close'>X</div>
+            { this.state.share && <div className='share-menu'>
+              <div className='share-facebook'><i class="fab fa-facebook-f"/></div>
+              <div className='share-twitter'><i class="fab fa-twitter"/></div>
+              <div className='share-instagram'><i class="fab fa-instagram"/></div>
+            </div> }
           </div>
           <img src={this.state.img} alt="lookin good"/>
         </div>
@@ -76,7 +88,7 @@ export default class Body extends Component {
           dataLength={this.state.items.length}
           next={this.fetchMoreData}
           hasMore={true}
-          scrollThreshold={0.4}
+          scrollThreshold={0.9}
           loader={<h4>Loading...</h4>}
         >
           {this.state.items.map((x, index) => (
