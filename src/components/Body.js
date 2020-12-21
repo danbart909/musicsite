@@ -3,6 +3,8 @@ import pics from './pics.js'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import $ from 'jquery'
 
+let startingPics = pics.shuffled.concat(pics.shuffled)
+
 export default class Body extends Component {
   
   constructor(props) {
@@ -11,7 +13,7 @@ export default class Body extends Component {
       share: false,
       view: false,
       img: null,
-      items: pics.shuffled
+      items: startingPics
     }
   }
 
