@@ -32,9 +32,14 @@ export default class Body extends Component {
     this.setState({ share: !this.state.share })
   }
 
+  closeShare = (e) => {
+    e.stopPropagation()
+    return this.state.share ? this.setState({ share: false }) : null
+  }
+
   esc = (e) => {
     if (e.keyCode === 27) {
-      if (this.state.view === true) {this.setState({ view: false }) }
+      return this.state.view ? this.setState({ view: false }) : null
     }
   }
 
@@ -58,7 +63,7 @@ export default class Body extends Component {
   render() {
 
     $(document).ready(function(){
-      $(".modal img, .share-menu").click(function(e) {
+      $(".share-menu").click(function(e) {
         e.stopPropagation();
       });
     });
@@ -73,15 +78,19 @@ export default class Body extends Component {
       { this.state.view && <div className='overlay' onClick={this.closeModal}>
         <div className='modal'>
           <div className='modal-header'>
-            <div className={modalShareClass} onClick={(e) => this.toggleShare(e)}>SHARE</div>
-            <div className='modal-close'>X</div>
-            { this.state.share && <div className='share-menu'>
-              <div className='share-facebook'><i class="fab fa-facebook-f"/></div>
-              <div className='share-twitter'><i class="fab fa-twitter"/></div>
-              <div className='share-instagram'><i class="fab fa-instagram"/></div>
-            </div> }
+            <div className={modalShareClass} onClick={(e) => this.toggleShare(e)}>
+              <span>SHARE</span>
+              { this.state.share && <div className='share-menu'>
+                <div className='share-facebook'><i class="fab fa-facebook-f"/></div>
+                <div className='share-twitter'><i class="fab fa-twitter"/></div>
+                <div className='share-instagram'><i class="fab fa-instagram"/></div>
+              </div> }
+            </div>
+            <div className='modal-close'>
+              <span>X</span>
+            </div>
           </div>
-          <img src={this.state.img} alt="lookin good"/>
+          <img src={this.state.img} alt="lookin good" onClick={(e) => this.closeShare(e)}/>
         </div>
       </div> }
         <InfiniteScroll
