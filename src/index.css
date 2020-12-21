@@ -72,6 +72,7 @@ html {
 }
 
 #nav-mobile-container {
+  background: url("images/logo_background.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -413,10 +414,13 @@ img {
   }
 
   #nav-container {
+    background: url("images/logo_background.jpg");
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 8vh;
+    height: 10vh;
     width: 100%;
     color: white;
     background-color: black;
