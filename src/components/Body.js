@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
 import pics from './pics.js'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import $ from 'jquery'
-
-let startingPics = pics.shuffled.concat(pics.shuffled)
+// import $ from 'jquery'
 
 export default class Body extends Component {
-  
   constructor(props) {
     super(props)
     this.state = {
       share: false,
       view: false,
       img: null,
-      items: startingPics
+      items: pics.shuffled3
     }
+  }
+
+  shuffleArray = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array
   }
 
   openModal = (x) => {
@@ -43,8 +50,12 @@ export default class Body extends Component {
     }
   }
 
+  halt = (e) => {
+    e.stopPropagation()
+  }
+
   fetchMoreData = () => {
-    this.setState({ items: this.state.items.concat(pics.shuffled) })
+    this.setState({ items: this.state.items.concat(this.shuffleArray(pics.images1)) })
   }
 
   componentDidMount() {
@@ -56,17 +67,18 @@ export default class Body extends Component {
   }
 
   // console = () => {
-  //   console.log(pics)
+  //   new Promise(() => {
+  //     setTimeout(() => {
+  //       console.log(this.state, this.props);
+  //     }, 5);
+  //   })
   // }
-  // <button onClick={this.console}>.</button>
 
   render() {
 
-    $(document).ready(function(){
-      $(".share-menu").click(function(e) {
-        e.stopPropagation();
-      });
-    });
+    // $(document).ready(function(){
+
+    // });
 
     let modalShareClass = 'modal-share-closed'
     if (this.state.share === true) {
@@ -75,12 +87,15 @@ export default class Body extends Component {
 
     return (
       <div id='body-container'>
+
+      {/* <button onClick={this.console}>.</button> */}
+
       { this.state.view && <div className='overlay' onClick={this.closeModal}>
         <div className='modal'>
           <div className='modal-header'>
             <div className={modalShareClass} onClick={(e) => this.toggleShare(e)}>
               <span>SHARE</span>
-              { this.state.share && <div className='share-menu'>
+              { this.state.share && <div className='share-menu' onClick={(e) => this.halt(e)}>
                 <div className='share-facebook'><i class="fab fa-facebook-f"/></div>
                 <div className='share-twitter'><i class="fab fa-twitter"/></div>
                 <div className='share-instagram'><i class="fab fa-instagram"/></div>
@@ -93,6 +108,31 @@ export default class Body extends Component {
           <img src={this.state.img} alt="lookin good" onClick={(e) => this.closeShare(e)}/>
         </div>
       </div> }
+
+      { this.props.state.music && <div className='overlay' onClick={this.props.closeNavModal}>
+        <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
+          <span>MUSIC</span>
+        </div>
+      </div> }
+
+      { this.props.state.newsletter && <div className='overlay' onClick={this.props.closeNavModal}>
+        <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
+          <span>NEWSLETTER</span>
+        </div>
+      </div> }
+
+      { this.props.state.contact && <div className='overlay' onClick={this.props.closeNavModal}>
+        <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
+          <span>CONTACT</span>
+        </div>
+      </div> }
+
+      { this.props.state.tourdates && <div className='overlay' onClick={this.props.closeNavModal}>
+        <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
+          <span>TOUR DATES</span>
+        </div>
+      </div> }
+
         <InfiniteScroll
           className='infinitescroll'
           overlayClassName='infinitescroll-overlay'
@@ -108,6 +148,7 @@ export default class Body extends Component {
             </div>
           ))}
         </InfiniteScroll>
+
       </div>
     )
   }

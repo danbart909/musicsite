@@ -187,7 +187,7 @@ html {
   justify-content: space-evenly;
 }
 
-#sidebar a {
+#sidebar a, #sidebar div {
   color: white;
   text-decoration: none;
   height: 100%;
@@ -200,7 +200,7 @@ html {
   border-bottom: 1px solid black;
 }
 
-#sidebar a:hover {
+#sidebar a:hover, #sidebar div:hover {
   color: black;
   background-color: white;
   transition: 0.3s;
@@ -379,16 +379,18 @@ img {
 
 }
 
-.share-facebook {
-
-}
-
-.share-twitter {
-  
-}
-
-.share-instagram {
-  
+.nav-modal {
+  z-index: 3;
+  height: 400px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 26px;
+  padding: 5px 0 0 0;
 }
 
 

@@ -28,19 +28,19 @@ export default class Nav extends Component {
             <img src={logo} alt='logo'/>
           </div>
           <div id='banner-right'>
-            <div className='nav-item' id='music'>
+            <div className='nav-item' id='music' onClick={() => {this.props.openMusic()}}>
               <div className='logo' id='music-logo'><i class="fas fa-headphones"></i></div>
               <div className='title' id='music-title'>MUSIC</div>
             </div>
-            <div className='nav-item' id='newsletter'>
+            <div className='nav-item' id='newsletter' onClick={() => {this.props.openNewsletter()}}>
               <div className='logo' id='newsletter-logo'><i class="fas fa-envelope"></i></div>
               <div className='title' id='newsletter-title'>NEWSLETTER</div>
             </div>
-            <div className='nav-item' id='contact'>
+            <div className='nav-item' id='contact' onClick={() => {this.props.openContact()}}>
               <div className='logo' id='contact-logo'><i class="fas fa-at"></i></div>
               <div className='title' id='contact-title'>CONTACT</div>
             </div>
-            <div className='nav-item' id='tour-dates'>
+            <div className='nav-item' id='tour-dates' onClick={() => {this.props.openTourDates()}}>
               <div className='logo' id='tour-logo'><i class="fas fa-ticket-alt"></i></div>
               <div className='title' id='tour-title'>TOUR DATES</div>
             </div>
