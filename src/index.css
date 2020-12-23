@@ -67,7 +67,7 @@ html {
 
 
 #nav-container {
-  display: flex;
+  display: none;
   z-index: 2;
 }
 
@@ -382,7 +382,7 @@ img {
 .nav-modal {
   z-index: 3;
   height: 400px;
-  width: 300px;
+  width: 200px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -390,7 +390,7 @@ img {
   background-color: white;
   font-family: 'Nunito', sans-serif;
   font-size: 26px;
-  padding: 5px 0 0 0;
+  padding: 10px 0 0 0;
 }
 
 
