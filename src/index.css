@@ -67,7 +67,7 @@ html {
 
 
 #nav-container {
-  display: none;
+  display: flex;
   z-index: 2;
 }
 
