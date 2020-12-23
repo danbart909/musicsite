@@ -382,7 +382,7 @@ img {
 .nav-modal {
   z-index: 3;
   height: 400px;
-  width: 200px;
+  width: 300px;
   position: relative;
   display: flex;
   justify-content: center;
