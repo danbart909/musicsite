@@ -10,7 +10,8 @@ export default class App extends Component {
       music: false,
       newsletter: false,
       contact: false,
-      tourdates: false
+      tourdates: false,
+      navmenu: false
     }
   }
 
@@ -39,9 +40,18 @@ export default class App extends Component {
     document.body.style.overflow = 'unset';
   }
 
+  openNavMenu = (e) => {
+    e.stopPropagation()
+    this.setState({ navmenu: true })
+  }
+
+  closeNavMenu = () => {
+    this.setState({ navmenu: false })
+  }
+
   render() {
     return (
-      <div id='overlord'>
+      <div id='overlord' onClick={this.closeNavMenu}>
         <Nav
           openMusic={this.openMusic}
           openNewsletter={this.openNewsletter}
@@ -53,6 +63,8 @@ export default class App extends Component {
           openNewsletter={this.openNewsletter}
           openContact={this.openContact}
           openTourDates={this.openTourDates}
+          openNavMenu={(e) => {this.openNavMenu(e)}}
+          state={this.state}
         />
         <Body
           state={this.state}

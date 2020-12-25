@@ -16,6 +16,8 @@ PT Sans
 Open Sans
 */
 
+/* font-size: calc(14px + 2 * ((100vw - 335px) / 1265)); */
+
 @keyframes shareIn {
   100% {
     height: 500%;
@@ -35,17 +37,17 @@ Open Sans
 body {
   padding: 0;
   margin: 0;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
-body::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
 
 html {
   font-size: 100%;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 #overlord {
@@ -107,20 +109,13 @@ html {
   font-size: 28px;
 }
 
-/* #mobile-menu:hover {
-  background-color: white;
-  color: black;
-  transition: 0.4s;
-} */
-
 #times {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 11px 0 0 0;
 }
 
 #bars {
@@ -130,11 +125,9 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 11px 0 0 0;
 }
 
 #mobile-main-logo {
-  /* outline: 1px solid white; */
   width: 100%;
   height: 100%;
   margin: auto;
@@ -142,7 +135,6 @@ html {
 
 #mobile-main-logo img {
   width: auto;
-  /* height: auto; */
 }
 
 #mobile-spacer {
@@ -168,7 +160,7 @@ html {
 
 
 #mobile-banner-menu {
-  display: none;
+  display: inline;
   position: fixed;
   top: 8vh;
   height: 500px;
@@ -373,8 +365,6 @@ img {
   width: auto;
   position: relative;
   bottom: 25px;
-  /* height: auto;
-  width: 100%; */
   z-index: 4;
 
 }
@@ -391,6 +381,24 @@ img {
   font-family: 'Nunito', sans-serif;
   font-size: 26px;
   padding: 10px 0 0 0;
+}
+
+#scroll-to-top {
+  position: fixed;
+  bottom: 2%;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+#scroll-to-top i {
+  font-size: 32px;
+  color: white;
 }
 
 
@@ -430,9 +438,9 @@ img {
   }
 
   #banner {
-    font-size: 13px;
+    font-size: calc(10px + 18 * ((100vw - 750px) / 2000));
     height: 100%;
-    width: 850px;
+    width: 95%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -443,7 +451,7 @@ img {
   #banner-right {
     display: flex;
     width: 40%;
-    height: 100%;
+    height: 80%;
   }
   
   .nav-item {
@@ -454,6 +462,8 @@ img {
     width: 25%;
     height: 100%;
     transition: 0.5s;
+    padding: 0 0 0 0px;
+    margin: 0 0 0 0;
   }
 
   .nav-item:hover {
@@ -472,8 +482,6 @@ img {
   }
 
   #main-logo img {
-    /* height: auto; */
-    /* width: 100%; */
     width: auto;
   }
 
@@ -498,5 +506,32 @@ img {
     height: 350px;
     margin: 0 30px 25px;
   }
+
+  #scroll-to-top {
+    position: fixed;
+    bottom: 3%;
+    right: 40px;
+    height: 75px;
+    width: 75px;
+  }
+
+  #scroll-to-top i {
+    font-size: 50px;
+  }
+
+}
+
+
+
+
+
+@media screen and (min-width: 1000px) {
+
+  #banner {
+    font-size: 13px;
+    width: 950px;
+  }
+
+
 
 }

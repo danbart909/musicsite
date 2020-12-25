@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import pics from './pics.js'
 import InfiniteScroll from 'react-infinite-scroll-component'
-// import $ from 'jquery'
 
 export default class Body extends Component {
   constructor(props) {
@@ -10,7 +9,8 @@ export default class Body extends Component {
       share: false,
       view: false,
       img: null,
-      items: pics.shuffled3
+      items: pics.shuffled3,
+      scrollToTop: false
     }
   }
 
@@ -58,8 +58,17 @@ export default class Body extends Component {
     this.setState({ items: this.state.items.concat(this.shuffleArray(pics.images1)) })
   }
 
+  toggleScrollUp = () => {
+    window.pageYOffset > 300 ? this.setState({ scrollToTop: true }) : this.setState({ scrollToTop: false })
+  }
+
+  scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth'})
+  }
+
   componentDidMount() {
     document.addEventListener("keydown", this.esc, false);
+    document.addEventListener("scroll", this.toggleScrollUp);
   }
 
   componentWillUnmount() {
@@ -73,12 +82,9 @@ export default class Body extends Component {
   //     }, 5);
   //   })
   // }
+  // <button onClick={this.console}>.</button>
 
   render() {
-
-    // $(document).ready(function(){
-
-    // });
 
     let modalShareClass = 'modal-share-closed'
     if (this.state.share === true) {
@@ -87,8 +93,6 @@ export default class Body extends Component {
 
     return (
       <div id='body-container'>
-
-      {/* <button onClick={this.console}>.</button> */}
 
       { this.state.view && <div className='overlay' onClick={this.closeModal}>
         <div className='modal'>
@@ -133,21 +137,23 @@ export default class Body extends Component {
         </div>
       </div> }
 
-        <InfiniteScroll
-          className='infinitescroll'
-          overlayClassName='infinitescroll-overlay'
-          dataLength={this.state.items.length}
-          next={this.fetchMoreData}
-          hasMore={true}
-          scrollThreshold={0.9}
-          loader={<h4>Loading...</h4>}
-        >
-          {this.state.items.map((x, index) => (
-            <div className='imgbox' key={index} onClick={(x) => {this.openModal(x)}}>
-              <img src={x} alt={index}/>
-            </div>
-          ))}
-        </InfiniteScroll>
+      <InfiniteScroll
+        className='infinitescroll'
+        overlayClassName='infinitescroll-overlay'
+        dataLength={this.state.items.length}
+        next={this.fetchMoreData}
+        hasMore={true}
+        scrollThreshold={0.9}
+        loader={<h4>Loading...</h4>}
+      >
+        {this.state.items.map((x, index) => (
+          <div className='imgbox' key={index} onClick={(x) => {this.openModal(x)}}>
+            <img src={x} alt={index}/>
+          </div>
+        ))}
+      </InfiniteScroll>
+
+      { this.state.scrollToTop && <div id='scroll-to-top' onClick={this.scrollUp} ><i class="fas fa-arrow-up"/></div> }
 
       </div>
     )
