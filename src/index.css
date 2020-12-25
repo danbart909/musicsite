@@ -383,6 +383,23 @@ img {
   padding: 10px 0 0 0;
 }
 
+.nav-modal-close {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.nav-modal-close i {
+  font-size: 40px;
+  color: white;
+}
+
 #scroll-to-top {
   position: fixed;
   bottom: 2%;

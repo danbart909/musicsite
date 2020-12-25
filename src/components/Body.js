@@ -116,24 +116,36 @@ export default class Body extends Component {
       { this.props.state.music && <div className='overlay' onClick={this.props.closeNavModal}>
         <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
           <span>MUSIC</span>
+          <div className='nav-modal-close'>
+            <i className="fas fa-times" id='times' onClick={this.props.closeNavModal}/>
+          </div>
         </div>
       </div> }
 
       { this.props.state.newsletter && <div className='overlay' onClick={this.props.closeNavModal}>
         <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
           <span>NEWSLETTER</span>
+          <div className='nav-modal-close'>
+            <i className="fas fa-times" id='times' onClick={this.props.closeNavModal}/>
+          </div>
         </div>
       </div> }
 
       { this.props.state.contact && <div className='overlay' onClick={this.props.closeNavModal}>
         <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
           <span>CONTACT</span>
+          <div className='nav-modal-close'>
+            <i className="fas fa-times" id='times' onClick={this.props.closeNavModal}/>
+          </div>
         </div>
       </div> }
 
       { this.props.state.tourdates && <div className='overlay' onClick={this.props.closeNavModal}>
         <div className='nav-modal' onClick={(e) => {this.halt(e)}}>
           <span>TOUR DATES</span>
+          <div className='nav-modal-close'>
+            <i className="fas fa-times" id='times' onClick={this.props.closeNavModal}/>
+          </div>
         </div>
       </div> }
 
