@@ -6,9 +6,8 @@ import i004 from '../images/i004.jpeg'
 import i005 from '../images/i005.jpeg'
 import i006 from '../images/i006.jpeg'
 import i007 from '../images/i007.jpeg'
-import i008 from '../images/i008.jpeg'
+import i008 from '../images/i008.jpg'
 import i009 from '../images/i009.jpeg'
-import i010 from '../images/i010.jpeg'
 
 const images1 = [
   i000,
@@ -20,8 +19,7 @@ const images1 = [
   i006,
   i007,
   i008,
-  i009,
-  i010
+  i009
 ]
 
 const images2 = [
@@ -34,8 +32,7 @@ const images2 = [
   i006,
   i007,
   i008,
-  i009,
-  i010
+  i009
 ]
 
   let shuffleArray = (array) => {
