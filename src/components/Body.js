@@ -100,9 +100,9 @@ export default class Body extends Component {
             <div className={modalShareClass} onClick={(e) => this.toggleShare(e)}>
               <span>SHARE</span>
               { this.state.share && <div className='share-menu' onClick={(e) => this.halt(e)}>
-                <div className='share-facebook'><i class="fab fa-facebook-f"/></div>
-                <div className='share-twitter'><i class="fab fa-twitter"/></div>
-                <div className='share-instagram'><i class="fab fa-instagram"/></div>
+                <div className='share-facebook'><i className="fab fa-facebook-f"/></div>
+                <div className='share-twitter'><i className="fab fa-twitter"/></div>
+                <div className='share-instagram'><i className="fab fa-instagram"/></div>
               </div> }
             </div>
             <div className='modal-close'>
@@ -165,7 +165,7 @@ export default class Body extends Component {
         ))}
       </InfiniteScroll>
 
-      { this.state.scrollToTop && <div id='scroll-to-top' onClick={this.scrollUp} ><i class="fas fa-arrow-up"/></div> }
+      { this.state.scrollToTop && <div id='scroll-to-top' onClick={this.scrollUp} ><i className="fas fa-arrow-up"/></div> }
 
       </div>
     )

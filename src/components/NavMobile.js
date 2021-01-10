@@ -19,35 +19,35 @@ export default class NavMobile extends Component {
         { this.props.state.navmenu && <div id='mobile-banner-menu'>
           <div id='sidebar'>
             <a className='menu-item' href='/'>
-              <i class="fab fa-facebook-f"/>
+              <i className="fab fa-facebook-f"/>
               <span>FACEBOOK</span>
             </a>
             <a className='menu-item' href='/'>
-              <i class="fab fa-twitter"/>
+              <i className="fab fa-twitter"/>
               <span>TWITTER</span>
             </a>
             <a className='menu-item' href='/'>
-              <i class="fab fa-instagram"/>
+              <i className="fab fa-instagram"/>
               <span>INSTAGRAM</span>
             </a>
             <a className='menu-item' href='/'>
-              <i class="fab fa-youtube"/>
+              <i className="fab fa-youtube"/>
               <span>YOUTUBE</span>
             </a>
             <div className='menu-item' onClick={this.props.openMusic}>
-              <i class="fas fa-headphones"/>
+              <i className="fas fa-headphones"/>
               <span>MUSIC</span>
             </div>
             <div className='menu-item' onClick={this.props.openNewsletter}>
-              <i class="fas fa-envelope"/>
+              <i className="fas fa-envelope"/>
               <span>NEWSLETTER</span>
             </div>
             <div className='menu-item' onClick={this.props.openContact}>
-              <i class="fas fa-at"/>
+              <i className="fas fa-at"/>
               <span>CONTACT</span>
             </div>
             <div className='menu-item' onClick={this.props.openTourDates}>
-              <i class="fas fa-ticket-alt"/>
+              <i className="fas fa-ticket-alt"/>
               <span>TOUR DATES</span>
             </div>
           </div>
