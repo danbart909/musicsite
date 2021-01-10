@@ -79,7 +79,7 @@ html {
   justify-content: center;
   align-items: center;
   position: fixed;
-  height: 8vh;
+  height: 9vh;
   width: 100%;
   color: white;
   background-color: black;
@@ -226,7 +226,7 @@ html {
 
 
 #body-container {
-  padding: 10vh 0 0 0;
+  padding: 11vh 0 0 0;
 }
 
 .infinite-scroll-component__outerdiv {

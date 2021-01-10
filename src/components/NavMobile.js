@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import logo_icon from '../images/logo_icon.png'
+import logo from '../images/logo.png'
 
 export default class NavMobile extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class NavMobile extends Component {
             { this.props.state.navmenu && <i className="fas fa-times" id='times'/> }
           </div>
           <div id='mobile-main-logo'>
-            <img src={logo_icon} alt='logo'/>
+            <img src={logo} alt='logo'/>
           </div>
           <div id='mobile-spacer'><i className="fas fa-plus"/></div>
         </div>
