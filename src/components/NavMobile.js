@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo_icon from '../images/logo_icon.png'
+// import logo_icon from '../images/logo_icon.png'
 import logo from '../images/logo.png'
 
 export default class NavMobile extends Component {

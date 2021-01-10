@@ -160,9 +160,8 @@ html {
 
 
 #mobile-banner-menu {
-  display: inline;
   position: fixed;
-  top: 8vh;
+  top: 9vh;
   height: 500px;
   width: 100%;
   z-index: 5;
@@ -199,9 +198,9 @@ html {
   border-bottom: 1px solid black;
 }
 
-.menu-item {
+/* .menu-item {
   
-}
+} */
 
 .menu-item i {
   width: 40px;
@@ -229,9 +228,9 @@ html {
   padding: 11vh 0 0 0;
 }
 
-.infinite-scroll-component__outerdiv {
+/* .infinite-scroll-component__outerdiv {
 
-}
+} */
 
 .infinite-scroll-component {
   display: flex;
