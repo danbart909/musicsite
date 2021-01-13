@@ -35,21 +35,30 @@ const images2 = [
   i009
 ]
 
-  let shuffleArray = (array) => {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array
+let shuffleArray = (array) => {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
+  return array
+}
 
 let shuffled1 = shuffleArray(images1)
-
 let shuffled2 = shuffleArray(images2)
 
-let shuffled3 = shuffled1.concat(shuffled2)
+let shuffleCheck = (x, y) => {
+  if (x[x.length - 1] === y[0]) {
+    let a = shuffleArray(x)
+    let b = shuffleArray(y)
+    shuffleCheck(a, b)
+  } else {
+    return x.concat(y)
+  }
+}
+
+let shuffled3 = shuffleCheck(shuffled1, shuffled2)
 
 let images3 = images1.concat(images2)
 

@@ -21,7 +21,11 @@ export default class Body extends Component {
       array[i] = array[j];
       array[j] = temp;
     }
-    return array
+    if (array[0] === this.state.items[this.state.items.length - 1]) {
+      this.shuffleArray(pics.images1)
+    } else {
+      return array
+    }
   }
 
   openModal = (x) => {
@@ -73,6 +77,7 @@ export default class Body extends Component {
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.esc, false);
+    document.removeEventListener("scroll", this.toggleScrollUp);
   }
 
   // console = () => {
